@@ -18,12 +18,12 @@ start: ## Start all database containers and wait until healthy
 	@$(DOCKER_COMPOSE) up -d mysql mariadb postgres
 	@echo "Waiting for databases to be healthy..."
 	@for i in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15; do \
-		HEALTHY_COUNT=$$($(DOCKER_COMPOSE) ps --format json 2>/dev/null | grep -c '"Health":"healthy"' || echo "0"); \
-		if [ "$$HEALTHY_COUNT" -ge 3 ]; then \
+		HEALTHY_COUNT=$$($(DOCKER_COMPOSE) ps --format json 2>/dev/null | grep -c '"Health":"healthy"' | tr -d '\n' || echo "0"); \
+		if [ "$${HEALTHY_COUNT}" -ge 3 ] 2>/dev/null; then \
 			echo "✓ All databases are healthy!"; \
 			exit 0; \
 		fi; \
-		echo "  Waiting... ($$i/15) - $$HEALTHY_COUNT/3 databases healthy"; \
+		echo "  Waiting... ($$i/15) - $${HEALTHY_COUNT}/3 databases healthy"; \
 		sleep 2; \
 	done; \
 	echo "✗ Timeout: Not all databases became healthy in time"; \
