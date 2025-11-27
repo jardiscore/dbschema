@@ -79,7 +79,7 @@ class MySql implements DbSchemaInterface
             );
 
             // Sort results in the order specified by $fields
-            usort($results, function($a, $b) use ($fields) {
+            usort($results, function ($a, $b) use ($fields) {
                 $posA = array_search($a['name'], $fields);
                 $posB = array_search($b['name'], $fields);
                 return $posA <=> $posB;
