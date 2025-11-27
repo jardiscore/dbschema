@@ -84,8 +84,6 @@ class MySql implements DbSchemaInterface
                 $posB = array_search($b['name'], $fields);
                 return $posA <=> $posB;
             });
-
-            $results = array_values($results); // Re-index array
         }
 
         return $results;
