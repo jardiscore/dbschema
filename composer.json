@@ -1,0 +1,49 @@
+{
+  "name": "jardiscore/dbschema",
+  "description": "A flexible package for analyzing and managing database schemas (PDO-based) with support for MySQL/MariaDB, PostgreSQL, and SQLite",
+  "version": "1.0.0",
+  "type": "library",
+  "license": "MIT",
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "authors": [
+    {
+      "name": "Jardis Development Core",
+      "email": "jardisCore@headgent.dev"
+    }
+  ],
+  "require": {
+    "php": ">=8.2",
+    "jardispsr/dbschema": "^1.0",
+    "jardiscore/dotenv": "^1.0",
+    "ext-pdo": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.5",
+    "phpstan/phpstan": "^2.0.4",
+    "squizlabs/php_codesniffer": "^3.11.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "JardisCore\\DbSchema\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "JardisCore\\DbSchema\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "echo '#!/usr/bin/env bash' > .git/hooks/pre-commit",
+      "echo 'bash ./support/pre-commit-hook.sh' >> .git/hooks/pre-commit",
+      "chmod +x .git/hooks/pre-commit"
+    ]
+  },
+  "homepage": "https://github.com/jardiscore/dbschema",
+  "support": {
+    "issues": "https://github.com/jardiscore/dbschema/issues",
+    "email": "jardisCore@headgent.dev"
+  },
+  "keywords": ["database", "pdo", "schema", "domain driven design", "jardis", "Headgent"]
+}

@@ -1,0 +1,13 @@
+# files
+.git*
+.idea*
+.claude*
+
+#. libs
+tests/reports/
+vendor/
+
+# temp files
+*.log
+*.tmp
+*.cache
