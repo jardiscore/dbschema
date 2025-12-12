@@ -1,0 +1,10 @@
+.DS_Store
+.idea/
+.claude/
+
+vendor/
+tests/reports/
+
+*.tmp
+*.cache
+*.log
